@@ -1,0 +1,125 @@
+.paging a {
+    border: 1px solid #B5CEE7;
+    display: inline-block;
+    line-height: normal;
+    text-decoration: none;
+    vertical-align: middle;
+    color: #0033B3;
+    padding: 3px 8px;
+}
+
+.paging a:hover {
+    background: #0033B3;
+    color: white;
+} 
+
+.paging strong { padding: 3px 8px; }
+
+.paging b { color: red; }
+
+span .paging a {
+    border: 1px solid #B5CEE7;
+    display: inline-block;
+    line-height: normal;
+    text-decoration: none;
+    vertical-align: middle;
+    color: #0033B3;
+    padding: 3px 8px;
+}
+
+span .paging a:hover {
+    background: #0033B3;
+    color: white;
+} 
+
+span .paging strong { padding: 3px 8px; }
+
+span .paging b { color: red; }
+.paging ul li{float:left;height:45px;}
+.paging {padding:20px 0 0 0;}
+.paging .ui-button-text-only .ui-button-text{font-size:12px;padding:6px 12px 6px 12px;}
+/* �� END */
+
+.lfloat {
+	float: left;
+}
+
+.rfloat {
+	float: right;
+}
+
+.clearfix:after {
+	content: ".";
+	display: block;
+	clear: both;
+	visibility: hidden;
+	line-height: 0;
+	height: 0;
+}
+ 
+.clearfix {
+	display: inline-block;
+}
+ 
+html[xmlns] .clearfix {
+	display: block;
+}
+ 
+* html .clearfix {
+	height: 1%;
+}
+
+.datepicker {
+	margin-right: 3px;
+}
+
+.tip {
+    color: #666;
+    font-size: 12px;
+}
+
+.tb td {
+    padding: 3px 5px 3px 5px;
+}
+
+.tb {
+	width: 100%;
+	table-layout: fixed;
+	word-break: break-all;
+}
+
+.tb .title {
+	width: 20%;
+}
+
+.inputBox{height:26px;line-height:26px;font-size:15px;font-weight:normal;border:1px solid #9D9A99;}
+.selectBox{
+    line-height:0; 
+    height:28px;
+	border-spacing:0;
+	border-collapse:collapse;
+	padding:3px;
+	font-size:15px;
+	border:#bdc7d8 1px solid;
+	font-family:"lucida grande", tahoma, verdana, arial, sans-serif;
+}
+.btn {
+	margin:0px;
+    padding: 2px 10px 2px 10px;
+	height:28px;
+	text-align:center;
+	font-size:15px;
+}
+
+.ta-center {
+	text-align: center;
+}
+
+.red {
+	color: red;
+}
+
+.intro {
+	padding: 10px 5px 10px 5px;
+	font-size: 15px;
+}
