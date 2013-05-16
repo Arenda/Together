@@ -9,3 +9,7 @@ Make friends, asking something, call for a group with nearby people.
 
 ## REQUIREMENTS:
 Android 2.2+
+
+## INSTALLATION:
+
+Sorry...this project is under construction and CANNOT be installed.
