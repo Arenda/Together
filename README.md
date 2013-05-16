@@ -5,7 +5,7 @@ If you have some good ideas, or you think this project sucks feel free to contac
 
 ========
 ## DESCRIPTION:
-Make friends, asking something, call for a group with nearby people. 
+Make friends, ask something, call for a group with nearby people. 
 
 ## REQUIREMENTS:
 Android 2.2+
