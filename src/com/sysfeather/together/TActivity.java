@@ -20,6 +20,7 @@ import android.widget.Toast;
 
 public class TActivity extends Activity {
     protected final static String WWW_PATH = "file:///android_asset/www/";
+    // declare public for performance, direct access
     public TWebView mWebView;
     public AsyncTask<String, Integer, String> mAsyncTask;
     public SharedPreferences mPrefs;
@@ -120,11 +121,14 @@ public class TActivity extends Activity {
             this.mSpinnerDialog = null;
         }
         final TActivity me = this;
-        this.mSpinnerDialog = ProgressDialog.show(TActivity.this, title, message, true, true,
+        
+        this.mSpinnerDialog = ProgressDialog.show(TActivity.this, title, message, true, false,
                 new DialogInterface.OnCancelListener() {
                     public void onCancel(DialogInterface dialog) {
                         me.mSpinnerDialog = null;
-                        me.mAsyncTask.cancel(true);
+                        if(me.mAsyncTask != null) {
+                            me.mAsyncTask.cancel(true);
+                        }
                     }
                 });
     }
@@ -274,6 +278,14 @@ public class TActivity extends Activity {
      */
     public void setDoubleProperty(String name, double value) {
         this.getIntent().putExtra(name, value);
+    }
+    
+    @Override
+    protected void onDestroy() {
+        if (mAsyncTask != null) {
+            mAsyncTask.cancel(true);
+        }
+        super.onDestroy();
     }
     
     /**

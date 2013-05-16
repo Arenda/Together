@@ -63,8 +63,9 @@ public class TWebView extends WebView {
         settings.setJavaScriptCanOpenWindowsAutomatically(true);
         // loads the WebView completely zoomed out
         settings.setLoadWithOverviewMode(true);
-        settings.setAllowFileAccess(false);
+        //settings.setAllowFileAccess(false);
         settings.setDomStorageEnabled(true);
+        settings.setDefaultTextEncodingName("utf-8");
         settings.setCacheMode(0);
     }
 }

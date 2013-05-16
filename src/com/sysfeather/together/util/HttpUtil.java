@@ -130,6 +130,7 @@ public class HttpUtil {
 
         // try parse the string to a JSON object
         if(!"".equals(json)) {
+            Log.d(TAG, json);
             try {
                 jArray = new JSONArray(json);            
             } catch (JSONException e) {

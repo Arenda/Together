@@ -9,6 +9,6 @@ package com.sysfeather.together;
 
 public final class Manifest {
     public static final class permission {
-        public static final String C2D_MESSAGE="my_app_package.permission.C2D_MESSAGE";
+        public static final String C2D_MESSAGE="com.sysfeather.together.permission.C2D_MESSAGE";
     }
 }

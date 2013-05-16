@@ -1,6 +1,43 @@
 <resources>
     <string name="app_name">Let\'s Together</string>
     <string name="hello_world">Hello world!</string>
-    <string name="menu_settings">設定</string>
     <string name="title_activity_main">Let\'s Together!</string>
+    <string name="menu_settings">設定</string>
+    <string name="index_menu_add">新活動</string>
+    <string name="unknown_location">未知地點</string>
+    <!-- login -->
+    <string name="login_send">登入中</string>
+    <!-- signup -->
+    <string name="signup_send">送出註冊資訊</string>
+    <!-- publish -->
+    <string name="publish_menu_publish">發表活動</string>
+    <string name="publish_publishing">發表活動中</string>
+    <string name="publish_photo">請選擇相片或拍照</string>
+    <string name="publish_select_photo">請選擇相簿</string>
+    <string name="publish_success">發表成功</string>
+    <!-- response -->
+    <string name="response_send">送出中</string>
+    <string name="response_success">已寄出私信</string>
+    <!-- Error message -->
+    <string name="error_program">發生錯誤，請再試一次</string>
+    <string name="error_network">無法連線至網路</string>
+    <!-- GCM -->
+    <string name="error_config">Please set the %1$s constant and recompile the app.</string>
+    <string name="already_registered">Device is already registered on server.</string>
+    <string name="gcm_registered">From GCM: device successfully registered!</string>
+    <string name="gcm_unregistered">From GCM: device successfully unregistered!</string>
+    <string name="gcm_message">From GCM: you got message!</string>
+    <string name="gcm_error">From GCM: error (%1$s).</string>
+    <string name="gcm_recoverable_error">From GCM: recoverable error (%1$s).</string>
+    <string name="gcm_deleted">From GCM: server deleted %1$d pending messages!</string>
+    <string name="server_registering">Trying (attempt %1$d/%2$d) to register device on Demo Server.</string>
+    <string name="server_registered">From Demo Server: successfully added device!</string>
+    <string name="server_unregistered">From Demo Server: successfully removed device!</string>
+    <string name="server_register_error">Could not register device on Demo Server after %1$d attempts.</string>
+    <string name="server_unregister_error">Could not unregister device on Demo Server (%1$s).</string>
+    <string name="options_register">Register</string>
+    <string name="options_unregister">Unregister</string>
+    <string name="options_clear">Clear</string>
+    <string name="options_exit">Exit</string>
+    <!-- /GCM -->
 </resources>

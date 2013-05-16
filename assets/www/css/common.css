@@ -1,3 +1,22 @@
+/* first generation smart phone */
+@media screen and (max-width:480px) {
+    
+}
+
+/* smart phone */
+@media screen and (min-width:480px) and (max-width:768px) {
+	
+}
+
+/* tablet */
+@media screen and (min-width:768px) and (max-width:1024px) {
+    
+}
+
+/* desktop */
+@media screen and (min-width:1024px) {
+    
+}
 .paging a {
     border: 1px solid #B5CEE7;
     display: inline-block;

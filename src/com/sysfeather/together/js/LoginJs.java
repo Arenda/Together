@@ -4,6 +4,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import com.sysfeather.together.IndexActivity;
+import com.sysfeather.together.R;
 import com.sysfeather.together.SignupActivity;
 import com.sysfeather.together.TActivity;
 import com.sysfeather.together.model.Member;
@@ -21,11 +22,11 @@ public class LoginJs extends JavaScriptInterface {
     @JavascriptInterface
     public void login(String jsonString) {
         if(mActivity.isNetworkConnected()) {
-            mActivity.spinnerStart("Together", "登入中...");
+            mActivity.spinnerStart("Together", mActivity.getString(R.string.login_send));
             mActivity.mAsyncTask = new LoginAsyncTask();
             mActivity.mAsyncTask.execute(jsonString);
         } else {
-            Toast.makeText(mActivity, "無法連線至網路", Toast.LENGTH_SHORT).show();
+            Toast.makeText(mActivity, mActivity.getString(R.string.error_network), Toast.LENGTH_SHORT).show();
         }
     }
     
@@ -65,19 +66,20 @@ public class LoginJs extends JavaScriptInterface {
         protected void onPostExecute(String result) {
             mActivity.spinnerStop();
             if(ERROR.equals(result)) {
-                Toast.makeText(mActivity, "程式錯誤", Toast.LENGTH_SHORT).show();
+                Toast.makeText(mActivity, mActivity.getString(R.string.error_program), Toast.LENGTH_SHORT).show();
             } else {
                 try {
                     JSONObject json = new JSONObject(result);
                     if(json.getInt("success") == 1) { // 登入成功
                         Intent intent = new Intent(mActivity, IndexActivity.class);
                         mActivity.startActivity(intent);
+                        mActivity.finish();
                     } else {
                         Toast.makeText(mActivity, json.getString("error_msg"), Toast.LENGTH_SHORT).show();
                     }
                 } catch (JSONException e) {
                     Log.e("JSONException", e.toString());
-                    Toast.makeText(mActivity, "資訊錯誤", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(mActivity, mActivity.getString(R.string.error_program), Toast.LENGTH_SHORT).show();
                 }
             }
         }

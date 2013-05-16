@@ -1,0 +1,106 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Let's Together</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <link type="text/css" rel="stylesheet" href="css/reset.css" />
+    <link type="text/css" rel="stylesheet" href="css/jquery.mobile-1.3.0.min.css" />
+    <link type="text/css" rel="stylesheet" href="css/common.css" />
+    <script src="js/jquery-1.8.2.min.js"></script>
+    <script src="js/jquery.mobile-1.3.0.min.js"></script>
+    <script src="js/jquery.serializeJSON.min.js"></script>
+    <script src="js/together.js"></script>
+    <style>
+        #event {
+            height: 300px;
+        }
+        
+        #outer_preview {
+			overflow: hidden;
+			width: 150px;
+		    height: 150px;
+		    position: relative;
+		    display: none;
+		    border:1px double grey;
+		    border-width: 4px;
+		}
+		
+		.preview {
+			position: absolute;		
+		}
+    </style>
+</head>
+<body>
+    <div data-role="page" data-theme="b">
+        <div data-role="content" data-theme="b">
+        	<form id="publish_form">
+	            <div data-role="fieldcontain">
+		           <select id="category" name="category">
+		                <option value="">請選擇活動分類</option>
+		                <option value="0">揪團湊人</option>
+		                <option value="1">閒聊交友</option>
+		                <option value="2">求助發問</option>
+		                <option value="3">商業交易</option>
+		            </select>
+		        </div>
+		        <div id="photo_container">
+		        	<div>
+		                <a href="#" id="take_photo"><img src="images/ic_menu_camera.png" /></a>
+		                <a href="#" id="select_photo"><img src="images/ic_menu_gallery.png" /></a>
+	                </div>
+	                <div id="outer_preview">
+						<div class="preview"></div>
+					</div>
+	            </div>
+		        <div data-role="fieldcontain">
+		            <textarea name="event" id="event" placeholder="想發表什麼活動呢..."></textarea>
+		        </div>
+	        </form>
+        </div>
+    </div>
+<body>
+<script type="text/javascript">  
+    Together.android = {
+        takePhotoCallback: function() {
+        	var divX = 150;
+            var divY = 150;
+           	var base64 = android.getPhoto();
+           	$('#outer_preview').css('display', 'none');
+           	$('.preview').html('');
+           	if(base64 && base64 != '') {
+           		var $img = $('<img id="img" src="data:image/jpeg;base64,' + base64 + '" />');  
+               	$img.on('load', function() {
+               		var img = new Image();
+               		img.src = $(this).attr('src');          		
+        			var offsetX = (img.width - divX) / 2;
+        			var offsetY = (img.height - divY) / 2;
+        			console.log('offset x:' + offsetX + ',y:' + offsetY);
+        			$('.preview').css('left', '-' + offsetX + 'px').css('top', '-' + offsetY + 'px');
+        			$('#outer_preview').css('display', 'block');
+               	});
+               	$('.preview').append($img);
+           	}
+        },
+        selectPhotoCallback: function(imagePath) {
+           
+        },
+        formSerialize: function() {
+        	var data = $('#publish_form').serializeJSON();
+            android.publish(JSON.stringify(data));
+        }
+    };
+    
+    $(function() {
+    	$('#take_photo').bind('touchstart', function() {
+            android.takePhoto();
+        });
+    	$('#select_photo').bind('touchstart', function() {
+    		android.selectPhoto();
+        });
+        $('#cancel').bind('touchstart', function() {
+            $('#dialogPage').dialog('close');
+        });
+    });
+</script>
+</html>

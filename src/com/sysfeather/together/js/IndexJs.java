@@ -1,11 +1,15 @@
 package com.sysfeather.together.js;
 
 
+import com.sysfeather.together.IndexActivity;
+import com.sysfeather.together.R;
+import com.sysfeather.together.ResponseActivity;
 import com.sysfeather.together.TActivity;
 import com.sysfeather.together.model.Event;
 import com.sysfeather.together.model.Member;
 import com.sysfeather.together.util.StringUtil;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.util.Log;
 import android.webkit.JavascriptInterface;
@@ -27,8 +31,15 @@ public class IndexJs extends JavaScriptInterface {
                 mActivity.mAsyncTask.execute(token, memberId);
             }
         } else {
-            Toast.makeText(mActivity, "無法連線至網路", Toast.LENGTH_SHORT).show();
+            Toast.makeText(mActivity, mActivity.getString(R.string.error_network), Toast.LENGTH_SHORT).show();
         }
+    }
+	
+	@JavascriptInterface
+    public void response(String eventId) {
+	    Intent intent = new Intent((IndexActivity) mActivity, ResponseActivity.class);
+	    intent.putExtra(IndexActivity.EVENT_ID, eventId);
+	    mActivity.startActivity(intent);
     }
     
 	/**
@@ -41,10 +52,12 @@ public class IndexJs extends JavaScriptInterface {
         protected String doInBackground(String... params) {
             String token = params[0];
             String memberId = params[1];
-            Log.d(TAG, "token: " + token);
-            Log.d(TAG, "memberId: " + memberId);
             Event event = Event.getInstance();
-            String result = event.list(memberId, token).toString();
+            Log.d(TAG, ((IndexActivity) mActivity).mLocation.getLatitude() + "," + ((IndexActivity) mActivity).mLocation.getLongitude());
+            String result = event.list(memberId, 
+                    token, 
+                    ((IndexActivity) mActivity).mLocation.getLatitude(), 
+                    ((IndexActivity) mActivity).mLocation.getLongitude()).toString();
             return result;
         }  
         
@@ -55,9 +68,9 @@ public class IndexJs extends JavaScriptInterface {
         
         @Override
         protected void onPostExecute(String result) {
+            mActivity.mAsyncTask = null;
             result = StringUtil.replaceLineFeed(result);
-            Log.d(TAG, result);
-            mActivity.mWebView.loadUrl("javascript:jsBridge.initCallback('" + result + "')");
+            mActivity.mWebView.loadUrl("javascript:Together.android.callback('" + result + "')");
         }
     }
 }

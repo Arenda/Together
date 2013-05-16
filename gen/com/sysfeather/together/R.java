@@ -13,9 +13,30 @@ public final class R {
     public static final class drawable {
         public static final int ic_action_search=0x7f020000;
         public static final int ic_launcher=0x7f020001;
+        public static final int ic_menu_add=0x7f020002;
+        public static final int ic_menu_call=0x7f020003;
+        public static final int ic_menu_camera=0x7f020004;
+        public static final int ic_menu_close_clear_cancel=0x7f020005;
+        public static final int ic_menu_delete=0x7f020006;
+        public static final int ic_menu_edit=0x7f020007;
+        public static final int ic_menu_gallery=0x7f020008;
+        public static final int ic_menu_help=0x7f020009;
+        public static final int ic_menu_info_details=0x7f02000a;
+        public static final int ic_menu_mapmode=0x7f02000b;
+        public static final int ic_menu_more=0x7f02000c;
+        public static final int ic_menu_preferences=0x7f02000d;
+        public static final int ic_menu_save=0x7f02000e;
+        public static final int ic_menu_send=0x7f02000f;
+        public static final int ic_menu_share=0x7f020010;
+        public static final int ic_menu_upload=0x7f020011;
+        public static final int ic_menu_view=0x7f020012;
+        public static final int ic_stat_gcm=0x7f020013;
     }
     public static final class id {
+        public static final int index_menu_add=0x7f070003;
+        public static final int index_menu_settings=0x7f070002;
         public static final int menu_settings=0x7f070001;
+        public static final int publish_menu_publish=0x7f070004;
         public static final int twebview=0x7f070000;
     }
     public static final class layout {
@@ -23,12 +44,56 @@ public final class R {
     }
     public static final class menu {
         public static final int activity_main=0x7f060000;
+        public static final int index=0x7f060001;
+        public static final int publish=0x7f060002;
     }
     public static final class string {
+        public static final int already_registered=0x7f040012;
         public static final int app_name=0x7f040000;
+        /**  GCM 
+         */
+        public static final int error_config=0x7f040011;
+        public static final int error_network=0x7f040010;
+        /**  Error message 
+         */
+        public static final int error_program=0x7f04000f;
+        public static final int gcm_deleted=0x7f040018;
+        public static final int gcm_error=0x7f040016;
+        public static final int gcm_message=0x7f040015;
+        public static final int gcm_recoverable_error=0x7f040017;
+        public static final int gcm_registered=0x7f040013;
+        public static final int gcm_unregistered=0x7f040014;
         public static final int hello_world=0x7f040001;
-        public static final int menu_settings=0x7f040002;
-        public static final int title_activity_main=0x7f040003;
+        public static final int index_menu_add=0x7f040004;
+        /**  login 
+         */
+        public static final int login_send=0x7f040006;
+        public static final int menu_settings=0x7f040003;
+        public static final int options_clear=0x7f040020;
+        public static final int options_exit=0x7f040021;
+        public static final int options_register=0x7f04001e;
+        public static final int options_unregister=0x7f04001f;
+        /**  publish 
+         */
+        public static final int publish_menu_publish=0x7f040008;
+        public static final int publish_photo=0x7f04000a;
+        public static final int publish_publishing=0x7f040009;
+        public static final int publish_select_photo=0x7f04000b;
+        public static final int publish_success=0x7f04000c;
+        /**  response 
+         */
+        public static final int response_send=0x7f04000d;
+        public static final int response_success=0x7f04000e;
+        public static final int server_register_error=0x7f04001c;
+        public static final int server_registered=0x7f04001a;
+        public static final int server_registering=0x7f040019;
+        public static final int server_unregister_error=0x7f04001d;
+        public static final int server_unregistered=0x7f04001b;
+        /**  signup 
+         */
+        public static final int signup_send=0x7f040007;
+        public static final int title_activity_main=0x7f040002;
+        public static final int unknown_location=0x7f040005;
     }
     public static final class style {
         public static final int AppTheme=0x7f050000;

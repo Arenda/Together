@@ -19,7 +19,7 @@ import org.json.JSONObject;
 
 import android.util.Log;
 
-public class JSONParser {
+public class JSONUtil {
     public static JSONObject getJSONFromUrl(String url, List<NameValuePair> params) {
         InputStream is = null;
         JSONObject jObj = null;
